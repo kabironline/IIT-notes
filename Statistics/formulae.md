@@ -317,7 +317,16 @@ $$\rho = \frac{\sum_{i=1}^N\left(x_i - \bar{x}\right)\left(y_i - \bar{y}\right)}
 - $S_x$ is standard deviation of $x$ variable/column.
 - $S_y$ is standard deviation of $y$ variable/column.
 
----
+## Point Bi-serial Correlation
+
+$$\rho=\frac{\bar{Y_0}-\bar{Y_1}}{S_s}\sqrt{P_0P_1}$$
+
+- We need to assign a value of $1$ or $0$ to each observation, depending on whether the observation is in the first group or the second group.
+- $Y_0$ is the mean of the observations in the first group.
+- $Y_1$ is the mean of the observations in the second group.
+- $S_s$ is the sample standard deviation of the entire sample.
+- $P_0$ is the proportion of observations in the first group.
+- $P_1$ is the proportion of observations in the second group.
 
 ## Scatter plot
 
@@ -345,4 +354,44 @@ $$\rho = \frac{\sum_{i=1}^N\left(x_i - \bar{x}\right)\left(y_i - \bar{y}\right)}
 
 ---
 
-This article was created by [https://github.com/Param302](https://github.com/Param302)
+# Permuation and Combination
+
+## Permutation Formula
+
+- The number of permutations of $n$ objects when $p$ if them are of one kind and rest distinct is given by:
+
+$$^nP_r = \frac{n!}{p!}$$
+
+- The number of permutations of $n$ objects where $p_1$ is of one kind, $p_2$ is of another kind and $p_k$ is of $k^{th}$ kind is given by:
+
+$$\frac{n!}{p_1!*p_2!*...p_k!}$$
+
+## Circular Permutation: Clockwise and Anti-clockwise
+
+- We fix one element and then we have $n-1$ elements to arrange in $n-1$ ways.
+
+$$(n-1)!$$
+
+- If number of elements arranged in clockwise direction and anti-clockwise direction are same then:
+
+$$\frac{(n-1)!}{2}$$
+
+## Combination Formula
+
+- In general, each combination of $r$ objects from $n$ objects can give rise to $r!$ arrangements.
+- The number of possible combinations of $r$ objects from collection of $n$ objects is denoted by:
+
+$$^nC_r = \frac{n!}{r!(n-r)!}$$
+
+- Also
+
+$$\frac{n!}{r!(n-r)!}=\frac{n!}{(n-r)!r!} = \ ^nC_{(n-r)}$$
+
+- In other words, selecting $r$ objects from $n$ objects is the same as rejecting $n-r$ objects from $n$ objects.
+
+- $^nC_n = 1$ and $^nC_0 = 1$ for all values of $n$.
+- $^nC_r= \ ^{n+1}C_{r-1}+ \ ^{n+1}C_{r}$ $;$ $1 \leq r \leq n$
+
+---
+
+### Contributions by [https://github.com/Param302](https://github.com/Param302)
