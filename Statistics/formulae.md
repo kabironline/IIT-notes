@@ -360,7 +360,7 @@ $$\rho=\frac{\bar{Y_0}-\bar{Y_1}}{S_s}\sqrt{P_0P_1}$$
 
 - The number of permutations of $n$ objects when $p$ if them are of one kind and rest distinct is given by:
 
-$$^nP_r = \frac{n!}{p!}$$
+$$^nP_r = \frac{n!}{(n-r)!}$$
 
 - The number of permutations of $n$ objects where $p_1$ is of one kind, $p_2$ is of another kind and $p_k$ is of $k^{th}$ kind is given by:
 
