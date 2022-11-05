@@ -394,4 +394,47 @@ $$\frac{n!}{r!(n-r)!}=\frac{n!}{(n-r)!r!} = \ ^nC_{(n-r)}$$
 
 ---
 
+## Conditional Probability
+
+- The probability of an event $A$ given that another event $B$ has already occurred is called conditional probability.
+- It is denoted by $P(A|B)$.
+  $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
+
+### Multiplication Rule
+
+- The probability of two events $A$ and $B$ occurring together is given by:
+  $$P(A \cap B) = P(A) \cdot P(B|A)$$
+
+- The probability of three evennts $A,B$ and $C$ occuring together is given by:
+  $$P(A \cap B \cap C) = P(A) \cdot P(B|A) \cdot P(C|A \cap B)$$
+  $$P(C | A \cap B) = \frac{P(A \cap B \cap C)}{P(A \cap B)}$$
+
+## Independent Events
+
+- In case of independent events, the probability of two events occurring together is given by:
+  $$P(A | B) = P(A)$$
+- In other words, the probability of $A$ occurring given that $B$ has occurred is equal to the probability of $A$ occurring irrespective of whether $B$ has occurred or not.
+  $$ P(A \cap B) = P(A) \cdot P(B)$$
+- Therefore the probability of $A$ and $B$ are independent of each other.
+
+### Independence of more than two events
+
+- If $A,B,C$ are independent events, then:
+  $$P(A \cap B \cap C) = P(A) \cdot P(B) \cdot P(C)$$
+
+## Law of Total Probability
+
+- Let $E$ and $F$ be two events such that $E \cap F = \emptyset$.
+  $$P(E)= P(E \cap F) + P(E \cap F^c)$$
+  $$or$$
+  $$P(E)= P(E|F) \cdot P(F) + P(E|F^c) \cdot P(F^c)$$
+
+## Bayes' Theorem
+
+$$ P(B|A) = \frac{P(B \cap A)}{P(B)}$$
+$$\text{or}$$
+$$ P(B|A) =\frac{P(A|B) \cdot P(B)}{P(B)\cdot P(A|B) + P(B^c) \cdot P(A|B)}$$
+
+- Suppose that events $F$
+
 ### Contributions by [https://github.com/Param302](https://github.com/Param302)
