@@ -1,4 +1,4 @@
-# Week 1 - 4 formulae
+# Statistics 1 Formulae
 
 ## Measures of Central Tendency
 
@@ -436,5 +436,40 @@ $$\text{or}$$
 $$ P(B|A) =\frac{P(A|B) \cdot P(B)}{P(B)\cdot P(A|B) + P(B^c) \cdot P(A|B)}$$
 
 - Suppose that events $F$
+
+## Random Experiment
+
+- A random experiment is an experiment whose outcome is not known in advance. It is an experiment whose outcome is determined by chance.
+- The outcome of a random experiment is called a random variable.
+- Sample Space: The set of all possible outcomes of a random experiment is called the sample space of the experiment.
+  - Sample space is denoted by $S$.
+  - Suppose a random experiment of throwing a die is performed. The sample space of the experiment is given by:
+    $$S = \{1,2,3,4,5,6\}$$
+  - The sample space of a random experiment of tossing two coins is given by:
+    $$S = \{(H,H),(H,T),(T,H),(T,T)\}$$
+
+### Discrete Random Variable
+
+- A random variable that can take on at most a countable number of possible values is said to be a **Discrete Random Variable.**
+  - Thus, any random variable that can tkae on only a finite number or countably infinite number of values is a discrete.
+
+### Continuous Random Variable
+
+- There also exists a random variable that can take on an uncountably infinite number of values. Such a random variable is called a **Continuous Random Variable.**
+
+## Probability Mass Function
+
+- The probablity mass function $p(x)$ is positive for at most a coutntable number values of $x$. That is, if $X$must assume one of the values $x_1,x_2,...,x_n$ then:
+  - $p(x_i) \geq 0$ for all $i$ and $p(x_i) = 0$ for all $x \neq x_i$.
+  - Since $p(x)$ is a probability, it must satisfy the following:
+    $$\sum_{i=1}^\infin p(x_i) = 1$$
+    $$\text{Any } x_i \text{ should not be } \geq \text{ to } 0.$$
+- The graph from the probablity mass function can take many shapes. The graph can be skewed positively or negatively. It can be symmetric or asymmetric. It can be unimodal or multimodal. It can be discrete or continuous. It can also be uniform or non-uniform.
+
+## Cumulative Distribution Function
+
+- The cumulative distribution function $F(x)$ is defined as:
+  $$F(x) = P(X \leq x)$$
+- The cumulative distribution function $F(x)$ is a non-decreasing function of $x$.
 
 ### Contributions by [https://github.com/Param302](https://github.com/Param302)
