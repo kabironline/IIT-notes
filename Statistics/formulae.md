@@ -437,6 +437,8 @@ $$ P(B|A) =\frac{P(A|B) \cdot P(B)}{P(B)\cdot P(A|B) + P(B^c) \cdot P(A|B)}$$
 
 - Suppose that events $F$
 
+---
+
 ## Random Experiment
 
 - A random experiment is an experiment whose outcome is not known in advance. It is an experiment whose outcome is determined by chance.
@@ -472,4 +474,65 @@ $$ P(B|A) =\frac{P(A|B) \cdot P(B)}{P(B)\cdot P(A|B) + P(B^c) \cdot P(A|B)}$$
   $$F(x) = P(X \leq x)$$
 - The cumulative distribution function $F(x)$ is a non-decreasing function of $x$.
 
+## Expected Value of a Random Variable
+
+- Let $X$ be a Discreet Random variable taking values $x_1,x_2,...,x_n$ with probabilities $p_1,p_2,...,p_n$ respectively.
+- The Expectation of $X$ is denoted by $E(X)$ and is defined as:
+  $$E(X) = \sum_{i=1}^n x_i \cdot p_i$$
+- Suppose we want to find out the expectation of a random variable $X$ that takes on values $x_1,x_2,...,x_n$ with probabilities $p_1,p_2,...,p_n$ respectively.
+  - We can find the expectation by multiplying each value of $X$ by its probability and then adding the results.
+  - The expectation of a random variable is the weighted average of the possible values of the random variable.
+    $$E(g(X))=\sum g(x_i)P(X=x_i)$$
+- If the function $g(x)$ is multiplied by a constant $c$, then the expectation of the function is also multiplied by the same constant.
+  $$E(cg(X))=cE(g(X))$$
+- If we add a constant $c$ to the random variable $X$, then the expectation of the random variable is also increased by the same constant.
+  $$E(X+c)=E(X)+c$$
+- The expected value of the sum of random variables is equal to the sum of the individual expected values.
+  $$E(X+Y)=E(X)+E(Y)$$
+
+### Example
+
+| $X$    | $-1$  | $0$   | $1$   |
+| ------ | ----- | ----- | ----- |
+| $P(X)$ | $0.2$ | $0.5$ | $0.3$ |
+
+- Let $Y = g(X) = X^2.$ What is $E(Y)$
+- $E(Y) = \sum_{i=1}^n y_i \cdot p_i$
+- $E(Y) = [1 \cdot 0.2] + [0 \cdot 0.5] + [1 \cdot 0.3]$
+- $E(Y) = 0.2 + 0.3 = 0.5$
+
+## Variance of a Random Variable
+
+- Let's denote expected value of a random variable $X$ by the greek letter $\mu$.
+- Let $X$ be a random variable with the expected value $\mu$. Then the variance of $X$ denoted by $Var(X)$ is defined as:
+  $$Var(X) = E(X-\mu)^2$$
+  $$\text{or}$$
+  $$Var(X) = E(X^2) - \mu^2$$
+- In other words, the variance of random variable $X$ measures the square of the difference of the random variable from its mean, $\mu$, on the average.
+
+### Example
+
+- Random Experiment: Roll a die once.
+  - Sample Space: $S = \{1,2,3,4,5,6\}$
+  - Random Variable: $X = \text{number of spots on the die}$
+    |$X$ | 1 | 2 | 3 | 4 | 5 | 6 |
+    | --- | --- | --- | --- | --- | --- | --- |
+    |$X^2$ | 1 | 4 | 9 | 16 | 25 | 36 |
+    |$P(X)$ | 1/6 | 1/6 | 1/6 | 1/6 | 1/6 | 1/6 |
+    |$E(X)$ | 1/6 | 2/6 | 3/6 | 4/6 | 5/6 | 6/6 |
+    |$E(X^2)$ | 1/6 | 4/6 | 9/6 | 16/6 | 25/6 | 36/6 |
+  - $E(X) = \frac{1}{6} + \frac{2}{6} + \frac{3}{6} + \frac{4}{6} + \frac{5}{6} + \frac{6}{6} = \frac{21}{6} = 3.5$
+  - $E(X^2) = \frac{1}{6} + \frac{4}{6} + \frac{9}{6} + \frac{16}{6} + \frac{25}{6} + \frac{36}{6} = \frac{91}{6} = 15.17$
+  - $Var(X) = E(X^2) - \mu^2 = 15.17 - 3.5^2 = 15.17 - 12.25 = 2.92$
+
+## Bernoulli Random Variable
+
+- A random variable that takes on either the value 1 or 0 is called a **Bernoulli Random Variable**.
+- Let $X$ be a Bernoulli random variable with $p$ being the probability of success. Then the probability mass function of $X$ is:
+  $$p(x) = \begin{cases} p & \text{if } x = 1 \\ 1-p & \text{if } x = 0 \end{cases}$$
+  $$Var(X) = p(1-p)$$
+
+## Discrete Uniform random variable
+- Let $X$ be a random variable that is equally likely to occur on any of the $n$ possible values $x_1,x_2,...,x_n$. Then $X$ is said to be a **Discrete Uniform Random Variable**.
+$$Var(X) = \frac{(n^2-1)}{12}$$
 ### Contributions by [https://github.com/Param302](https://github.com/Param302)
