@@ -284,10 +284,9 @@ $$Cov(x, y) = \frac{\sum_{i=1}^{n-1}\left(x_i - \bar{x}\right)\left(y_i - \bar{y
 - It shows how two variables are related.
 - It derives from covariance.
 
-```ad-important
 - Correlation is always measures b/w $-1$ and $1$
 $$-1 \leq r \leq 1$$
-```
+
 
 #### Pearson correlation
 
@@ -501,6 +500,15 @@ $$ P(B|A) =\frac{P(A|B) \cdot P(B)}{P(B)\cdot P(A|B) + P(B^c) \cdot P(A|B)}$$
 - $E(Y) = [1 \cdot 0.2] + [0 \cdot 0.5] + [1 \cdot 0.3]$
 - $E(Y) = 0.2 + 0.3 = 0.5$
 
+| $X$    | $-2$   | $2$      | $5$       |
+| ------ | ------ | -------- | --------- |
+| $P(X)$ | $0.25$ | $0.3334$ | $0.41667$ |
+
+- Calculate the expected value of $(2X+1)^2$.
+- $E(Y) = \sum_{i=1}^n y_i \cdot p_i$
+- $E(Y) = [(2 \cdot -2 + 1) \cdot 0.25] + [(2 \cdot 2 + 1) \cdot 0.3334] + [(2 \cdot 5 + 1) \cdot 0.41667]$
+- $E(Y) = 0.75 + 1.6667 + 4.5833
+
 ## Variance of a Random Variable
 
 - Let's denote expected value of a random variable $X$ by the greek letter $\mu$.
@@ -508,6 +516,7 @@ $$ P(B|A) =\frac{P(A|B) \cdot P(B)}{P(B)\cdot P(A|B) + P(B^c) \cdot P(A|B)}$$
   $$Var(X) = E(X-\mu)^2$$
   $$\text{or}$$
   $$Var(X) = E(X^2) - \mu^2$$
+  $$E(X) = \sqrt{Var(X)+\mu^2}$$
 - In other words, the variance of random variable $X$ measures the square of the difference of the random variable from its mean, $\mu$, on the average.
 
 ### Example
@@ -533,6 +542,56 @@ $$ P(B|A) =\frac{P(A|B) \cdot P(B)}{P(B)\cdot P(A|B) + P(B^c) \cdot P(A|B)}$$
   $$Var(X) = p(1-p)$$
 
 ## Discrete Uniform random variable
+
 - Let $X$ be a random variable that is equally likely to occur on any of the $n$ possible values $x_1,x_2,...,x_n$. Then $X$ is said to be a **Discrete Uniform Random Variable**.
-$$Var(X) = \frac{(n^2-1)}{12}$$
+  $$Var(X) = \frac{(n^2-1)}{12}$$
+
+### Variance of a Random Variable when mulplied by a constant
+
+$$Var(cX) = c^2Var(X)$$
+
+### Variance of a Random Variable when added to a constant
+
+$$Var(X+c) = Var(X)$$
+
+### Collorary
+
+$$Var(aX+b) = a^2Var(X)$$
+
+### Variance of the sum of two random variables
+
+- This is applicable only when the two random variables are independent.
+  $$E(X+Y) = E(X)+E(Y)$$
+
+### Variance of sum of many independent random variables
+
+$$V(X_1+X_2 \ ... \ X_k) = V(X_1)+V(X_2)+...+V(X_k)$$
+$$\text{or}$$
+$$V(\sum_{i=1}^k X_i) = \sum_{i=1}^k V(X_i)$$
+
+## Standard Deviation of a Random Variable
+
+$$SD(X) = \sqrt{Var(X)}$$
+
+- Hence, the standard deviation is a positive square root of variance.
+- Standard deviation is in the same units as the random variable.
+
+## Standard Deviation adding or being multiplied by a constant
+
+### Multplied by a constant
+
+$$SD(cX) = \sqrt{c^2Var(X)} = c\sqrt{Var(X)}$$
+$$\text{or}$$
+$$SD(cX) = cSD(X)$$
+
+### Added to a constant
+
+- The standard deviation of a random variable is not affected by adding a constant to the random variable.
+  $$SD(X+c) = SD(X)$$
+
+### Collorary
+
+$$SD(aX+b) = aSD(X)$$
+$$SD(aX+b) = \sqrt{a^2Var(X)} = a\sqrt{Var(X)}$$
+
 ### Contributions by [https://github.com/Param302](https://github.com/Param302)
