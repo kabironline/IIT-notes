@@ -285,8 +285,7 @@ $$Cov(x, y) = \frac{\sum_{i=1}^{n-1}\left(x_i - \bar{x}\right)\left(y_i - \bar{y
 - It derives from covariance.
 
 - Correlation is always measures b/w $-1$ and $1$
-$$-1 \leq r \leq 1$$
-
+  $$-1 \leq r \leq 1$$
 
 #### Pearson correlation
 
@@ -393,6 +392,8 @@ $$\frac{n!}{r!(n-r)!}=\frac{n!}{(n-r)!r!} = \ ^nC_{(n-r)}$$
 
 ---
 
+# Probability
+
 ## Conditional Probability
 
 - The probability of an event $A$ given that another event $B$ has already occurred is called conditional probability.
@@ -438,7 +439,7 @@ $$ P(B|A) =\frac{P(A|B) \cdot P(B)}{P(B)\cdot P(A|B) + P(B^c) \cdot P(A|B)}$$
 
 ---
 
-## Random Experiment
+# Random Experiment
 
 - A random experiment is an experiment whose outcome is not known in advance. It is an experiment whose outcome is determined by chance.
 - The outcome of a random experiment is called a random variable.
@@ -594,4 +595,106 @@ $$SD(cX) = cSD(X)$$
 $$SD(aX+b) = aSD(X)$$
 $$SD(aX+b) = \sqrt{a^2Var(X)} = a\sqrt{Var(X)}$$
 
-### Contributions by [https://github.com/Param302](https://github.com/Param302)
+## Bernoulli Distribution
+
+- $X$ is a binomial random variable with praameters $n$ and $p$ that represents the number of successes in $n$ independent Bernoulli Trails, when each trial is a succees witha probablity $p$. $X$ takes the values $0,1,2,...,n$ with the probablity.
+  $$P(X=i) =\ ^nC_i \cdot p^i \cdot (1-p)^{n-i}$$
+- We can predict the skewness of the distribution graph of $X$ by the value of $p$.
+
+  - If $p < 0.5$ , then the distribution is skewed to the right.
+  - If $p = 0.5$ , then the distribution is symmetric.
+  - If $p > 0.5$ , then the distribution is skewed to the left.
+
+- The Probablity Distribution of Bernoulli Random Variable is
+  | $X$ | $0$ | $1$ |
+  | --- | --- | --- |
+  | $P(X)$ | $1-p$ | $p$ |
+
+  $$E(X) = 0 \cdot (1-p) + 1 \cdot p = p$$
+
+### Example : Tossing a coin
+
+- $S=\{ HHH, HHT, HTH, HTT, THH, THT, TTH, TTT \}$
+- Sucess: $H$ and Failure: $T$
+- $X$ is a random variable which counts the number of heads in toe tosses of a coin. $n = 3 ,p = 0.5$
+  | $X$ | $0$ | $1$ | $2$ | $3$ |
+  | --- | --- | --- | --- | --- |
+  | $P(X)$ | $0.125$ | $0.375$ | $0.375$ | $0.125$ |
+
+$P(X=3) = \ ^3C_3 \cdot 0.5^3 \cdot (0.5)^{3-3} = 0.125$
+
+### Variance of a Bernoulli Random Variable
+
+$$V(X) = p(1-p) = p - p^2$$
+
+- The largest variance occurs when $p = 0.5$. In happens when the success and failure are equally likely. In other words the most uncertain outcome is when the probability of success and failure are equal.
+
+### Independent and Identically Distributed Random Variables
+
+- Two random variables are said to be **Independent and Identically Distributed** if they are independent and have the same probability distribution.
+- A collection of random variables is said to be **Independent and Identically Distributed** if each random variable in the collection is independent and has the same probability distribution.
+
+### Expectation of Binomial Random Variable
+
+$$E(X) = np$$
+
+### Variance of Binomial Random Variable
+
+$$V(X) = np(1-p)$$
+
+### Standard Deviation of Binomial Random Variable
+
+$$SD(X) = \sqrt{np(1-p)}$$
+
+## Hypergeometric Distribution
+
+- Let $X$ be the number of items of type $1$, then the probablity mass function of the discrete random variable, $X$, is called the hypergeometric distribution and is of the form:
+  $$P(X=i) = \frac{\ ^mC_i \cdot \ ^{N-m}C_{n-i}}{\ ^NC_n}$$
+
+### Example: Choosing balls without replacement
+
+- A bag consists of $7$ balls of which $4$ are white and $3$ are black. A student randomly samples two balls without replacement. Let X be the number of black balls selected.
+  - Here, $N = 7, m = 3, n = 2$
+  - $X$ has the values $0,1,2$
+  - the probability mass function of $X$ is:
+    $$P(X=0) = \frac{\ ^3C_0 \cdot \ ^{7-3}C_{2-0}}{\ ^7C_2} = \frac{12}{42}$$
+    $$P(X=1) = \frac{\ ^3C_1 \cdot \ ^{7-3}C_{2-1}}{\ ^7C_2} = \frac{24}{42}$$
+    $$P(X=2) = \frac{\ ^3C_2 \cdot \ ^{7-3}C_{2-2}}{\ ^7C_2} = \frac{6}{42}$$
+
+### Expectation of Hypergeometric Random Variable
+
+$$E(X) = \frac{n \cdot m}{N}$$
+
+### Variance of Hypergeometric Random Variable
+
+$$V(X) = n \cdot \frac{m}{N} \cdot \frac{N-m}{N}$$
+
+- The variance of the hypergeometric distribution is symmetric when both $m$ and $n$ are equal to $\frac{N}{2} \text{ or } \frac{m}{N}=\frac{1}{2}$.
+
+## Poisson Distribution
+
+- The Poisson probablity distribution gives the probablity of a number of ecents occurring in a fixed interval of time or space.
+- We assume that these events happen with a known average rate, $\lambda$, and independently of the time since the last event.
+- Let $X$ be the number of events in a given interval. Then the probability mass function of the discrete random variable, $X$, is called the Poisson distribution and is of the form:
+  $$P(X=i) = \frac{e^{-\lambda} \cdot\lambda^x}{x!}$$
+
+#### Things to note about the graphs of Poisson Distribution
+
+- If the value of $\lambda$ is very small, the the graph is skewed to the right.
+- As the value of $\lambda$ increases, the graph becomes more symmetric.
+
+### Poisson as Binomial Approximation
+
+- Define "success" as exactly one event happening in a short interval of length $\delta t$.
+- The $n$ events happening in interval of length $t$ can be viewed as $n$ successes happening in $n$ intervals of length $\delta t$, with each one of them being an Independent and Identical trails.
+- Hence the problem can be viewed as
+  $$Bin(n,p=\frac{\lambda}{n})=\ ^nC_1 \cdot (\frac{\lambda}{n})^x \cdot (\frac{n-\lambda}{n})^{n-x}$$
+
+### Expectation of Poisson Random Variable
+- The expectation of a Poisson random variable is equal to the value of $\lambda$ itself.
+$$E(X) = \lambda$$
+
+### Variance of Poisson Random Variable
+- The variance of a Poisson random variable is equal to the value of $\lambda$.
+- $$V(X) = \lambda$$
+###### Contributions by [https://github.com/Param302](https://github.com/Param302)
