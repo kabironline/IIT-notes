@@ -691,10 +691,82 @@ $$V(X) = n \cdot \frac{m}{N} \cdot \frac{N-m}{N}$$
   $$Bin(n,p=\frac{\lambda}{n})=\ ^nC_1 \cdot (\frac{\lambda}{n})^x \cdot (\frac{n-\lambda}{n})^{n-x}$$
 
 ### Expectation of Poisson Random Variable
+
 - The expectation of a Poisson random variable is equal to the value of $\lambda$ itself.
-$$E(X) = \lambda$$
+  $$E(X) = \lambda$$
 
 ### Variance of Poisson Random Variable
+
 - The variance of a Poisson random variable is equal to the value of $\lambda$.
 - $$V(X) = \lambda$$
+
+## Probablity Density Function
+
+- Every Continuous Random Variable has a **Probablity Density Function**.
+- That probablity distribution cruve of a continuous random variable is also called the **Probablity Density Function**. It is denoted by $f(x)$.
+
+### Area under the Probablity Density Function
+
+- Consider any two points $a$ and $b$ where $a < b$.
+- The probablility that $X$ assumes a value that lies between $a$ and $b$ is given by the area under the probablity density function between $a$ and $b$.
+  $$P(a < X < b) = \int_a^b f(x) \ dx$$
+
+#### Properties of the Probablity Density Function
+
+- The area under the probablity distribution curve of a continuous random variable between any two points $a$ and $b$ is always between $0$ and $1$.
+- The area under the whole probablity distribution curve is always equal to $1$.
+  $$\int_{-\infty}^{\infty} f(x) \ dx = 1$$
+  $$ 1 \geq \int_a^b f(x) \ dx \geq 0$$
+
+#### Expectation of a Continuous Random Variable
+
+$$ E(X) = \int\_{-\infty}^{\infty} xf(x) \ dx$$
+
+#### Variance of a Continuous Random Variable
+
+$$V(X) = \int_{-\infty}^{\infty} (x-E(X))^2 f(x) \ dx$$
+
+## Cumulative Distribution Function
+
+- For a continuous random variable, the **Cumulative Distribution Function** is the integral of the **Probablity Density Function**.
+  $$F(x) = \int_{-\infty}^x f(x) \ dx$$
+
+## Uniform Distribution
+
+- A A random variable has the standard uniform distribution with minimum $0$ and maximum $1$ if its probability density function is given by
+  $$ \begin{cases} 1 & \text{if } 0 \leq x \leq 1 \\ 0 & \text{otherwise} \end{cases}$$
+- The standard uniform distribution plays an important role in random variate generation.
+  - $f(x) \leq 0, \text{for} x \in \mathbb{R}$
+  - $\int_{-\infty}^{\infty} f(x) \ dx = \int^1_0 f(x) dx = 1$
+
+### Expectation of Uniform Random Variable
+
+$$E(X) = \frac{a+b}{2}$$
+
+### Variance of Uniform Random Variable
+
+$$V(X) = \frac{(b-a)^2}{12}$$
+
+## Expoential Distribution
+
+- A continuous random variable whose probablity density function is given, for some $\lambda > 0$, by
+  $$f(x) = \begin{cases} \lambda e^{-\lambda x} &  x \geq 0 \\ 0 & \text{otherwise} \end{cases}$$
+- These are called exponential random varaible or, called exponentially distributed random variables with parameter $\lambda$.
+
+### Expectation of Exponential Random Variable
+
+$$E(X) = \frac{1}{\lambda}$$
+
+### Variance of Exponential Random Variable
+
+$$V(X) = \frac{1}{\lambda^2}$$
+
+### Standart Deviation of Exponential Random Variable
+
+$$\sigma = \sqrt{V(X)} = \frac{1}{\lambda}$$
+
+### Mean of Exponential Random Variable
+
+$$\mu = E(X) = \frac{1}{\lambda}$$
+
 ###### Contributions by [https://github.com/Param302](https://github.com/Param302)
