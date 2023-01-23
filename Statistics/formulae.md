@@ -508,7 +508,7 @@ $$ P(B|A) =\frac{P(A|B) \cdot P(B)}{P(B)\cdot P(A|B) + P(B^c) \cdot P(A|B)}$$
 - Calculate the expected value of $(2X+1)^2$.
 - $E(Y) = \sum_{i=1}^n y_i \cdot p_i$
 - $E(Y) = [(2 \cdot -2 + 1) \cdot 0.25] + [(2 \cdot 2 + 1) \cdot 0.3334] + [(2 \cdot 5 + 1) \cdot 0.41667]$
-- $E(Y) = 0.75 + 1.6667 + 4.5833
+- $E(Y) = 0.75 + 1.6667 + 4.5833$
 
 ## Variance of a Random Variable
 
@@ -625,7 +625,7 @@ $P(X=3) = \ ^3C_3 \cdot 0.5^3 \cdot (0.5)^{3-3} = 0.125$
 
 ### Variance of a Bernoulli Random Variable
 
-$$V(X) = p(1-p) = p - p^2$$
+$$V(X) = np(1-p)$$
 
 - The largest variance occurs when $p = 0.5$. In happens when the success and failure are equally likely. In other words the most uncertain outcome is when the probability of success and failure are equal.
 
@@ -720,7 +720,7 @@ $$V(X) = n \cdot \frac{m}{N} \cdot \frac{N-m}{N}$$
 
 #### Expectation of a Continuous Random Variable
 
-$$ E(X) = \int\_{-\infty}^{\infty} xf(x) \ dx$$
+$$ E(X) = \int_{-\infty}^{\infty} xf(x) \ dx$$
 
 #### Variance of a Continuous Random Variable
 
