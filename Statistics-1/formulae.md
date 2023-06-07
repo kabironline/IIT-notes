@@ -769,4 +769,4 @@ $$\sigma = \sqrt{V(X)} = \frac{1}{\lambda}$$
 
 $$\mu = E(X) = \frac{1}{\lambda}$$
 
-###### Contributions by [https://github.com/Param302](https://github.com/Param302)
+> Contributions by [https://github.com/Param302](https://github.com/Param302)
