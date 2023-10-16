@@ -89,6 +89,7 @@ def generate_graph(marks):
 # the first argument is the name of the script, so we ignore it
 script_name, arg, id = sys.argv
 
+
 def generate(arg, id):
     file_name = 'data.csv'
     # open the csv file
@@ -121,5 +122,5 @@ def generate(arg, id):
 
 title, heading, body = (generate(arg, id))
 # write the html file
-with open('student.html', 'w') as file:
+with open('ouput.html', 'w') as file:
     file.write(html_template.render(title=title, heading=heading, body=body))
