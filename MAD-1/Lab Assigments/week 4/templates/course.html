@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>{{ heading }}</h1>
+    <table
+      style="
+        text-align: center;
+        border: 1px solid black;
+        border-collapse: collapse;
+      "
+    >
+      <tr>
+        <th style="border: 1px solid black;padding = 2px">Average Marks</th>
+        <th style="border: 1px solid black;padding = 2px">Total Marks</th>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black">{{ average}}</td>
+        <td style="border: 1px solid black">{{ max_m}}</td>
+      </tr>
+    </table>
+    <img src="static/histogram.png" alt="" />
+
+    <br />
+    <a href="/">Go Back</a>
+  </body>
+</html>

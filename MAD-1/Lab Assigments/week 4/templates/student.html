@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>{{ heading }}</h1>
+
+    <table
+      style="
+        text-align: center;
+        border: 1px solid black;
+        border-collapse: collapse;
+      "
+    >
+      <tr>
+        <th style="border: 1px solid black;padding= 2px">Student ID</th>
+        <th style="border: 1px solid black;padding= 2px">Course ID</th>
+        <th style="border: 1px solid black;padding= 2px">Marks</th>
+      </tr>
+      {% for mark in marks %}
+      <tr>
+        <td style="border: 1px solid black">{{ mark[0] }}</td>
+        <td style="border: 1px solid black">{{ mark[1] }}</td>
+        <td style="border: 1px solid black">{{ mark[2] }}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td style="border: 1px solid black" colspan="2">Total Marks</td>
+        <td style="border: 1px solid black">{{ total }}</td>
+      </tr>
+    </table>
+    <br />
+    <a href="/">Go Back</a>
+  </body>
+</html>
