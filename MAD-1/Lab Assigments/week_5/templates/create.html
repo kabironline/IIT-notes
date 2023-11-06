@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Create{% endblock title%}
+{% block content %}
+
+  <h1>Create student</h1>
+
+<form action="/student/create" method="POST" id="create-form">
+  <div>
+    <label>Roll Number:</label>
+    <input type="text" name="roll" required />
+  </div>
+  <div>
+    <label>First Name:</label>
+    <input type="text" name="f_name" required />
+  </div>
+  <div>
+    <label>Last Name:</label>
+    <input type="text" name="l_name" />
+  </div>
+  <div>
+    <label>Select Courses: </label>
+    <input type="checkbox" name="courses" value="course_1" />
+    <label>MAD I</label>
+    <input type="checkbox" name="courses" value="course_2" />
+    <label>DBMS</label>
+    <input type="checkbox" name="courses" value="course_3" />
+    <label>PDSA</label>
+    <input type="checkbox" name="courses" value="course_4" />
+    <label>BDM</label>
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>
+
+{% endblock content %}

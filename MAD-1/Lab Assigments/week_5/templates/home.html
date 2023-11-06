@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title%}
+{% block content %}
+  <h1>Student list</h1>
+  {% if length != 0 %}
+    <table id = "all-students">
+      <tr>
+        <th>SNo</th>
+        <th>Roll Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Actions</th>
+      </tr>
+      {% for student in students %}
+        <tr>
+          <td>{{loop.index}}</td>
+          <td> <a href="/student/{{student.student_id}}">{{student.roll_number}}</a></td>
+          <td>{{student.first_name}}</td>
+          <td>{{student.last_name}}</td>
+          <td>
+            <a href="/student/{{student.student_id}}/update">Update</a>
+            <a href="/student/{{student.student_id}}/delete">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No student found. Add the students now!</p>
+  {% endif %}
+  <a href="/student/create">Add student</a>
+{% endblock content %}
