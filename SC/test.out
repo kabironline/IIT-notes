@@ -1,0 +1,10 @@
+test
+Command 'ech' not found, did you mean:
+  command 'echo' from deb coreutils (8.32-4.1ubuntu1.2)
+  command 'ecj' from deb ecj (3.16.0-1)
+  command 'sch' from deb scheme2c (2012.10.14-1ubuntu1)
+  command 'ecl' from deb ecl (21.2.1+ds-4)
+  command 'dch' from deb devscripts (2.22.1ubuntu1)
+  command 'ecm' from deb gmp-ecm (7.0.4+ds-6)
+  command 'bch' from deb bikeshed (1.78-0ubuntu1)
+Try: sudo apt install <deb name>
