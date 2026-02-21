@@ -1,0 +1,79 @@
+name: Sanity Test Report
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  sanity-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Create __init__.py files
+      run: |
+        touch src/__init__.py
+        touch tests/__init__.py
+    
+    - name: Verify data exists
+      run: |
+        echo "Checking for data files..."
+        ls -la data/
+    
+    - name: Train model
+      run: |
+        python src/train.py
+    
+    - name: Run Sanity Tests
+      run: |
+        echo "Running sanity tests..." > test_results.txt
+        pytest tests/ -v >> test_results.txt 2>&1 || true
+    
+    - name: Run Model Evaluation
+      run: |
+        python src/evaluate.py > eval_results.txt 2>&1
+    
+    - name: Generate Report Summary
+      run: |
+        echo "# 🧪 Sanity Test Report" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Branch:** \`${{ github.ref_name }}\`" >> $GITHUB_STEP_SUMMARY
+        echo "**Commit:** \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+        echo "**Triggered by:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        echo "## 📊 Test Results" >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
+        cat test_results.txt >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        echo "## 🎯 Model Evaluation" >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
+        cat eval_results.txt >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
+        
+        # Also print to console
+        echo "========================================="
+        echo "SANITY TEST REPORT"
+        echo "========================================="
+        cat test_results.txt
+        echo ""
+        echo "========================================="
+        echo "MODEL EVALUATION"
+        echo "========================================="
+        cat eval_results.txt

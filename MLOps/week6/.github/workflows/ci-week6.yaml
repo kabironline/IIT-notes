@@ -1,0 +1,74 @@
+name: Build and Deploy to GKE on week6 branch
+
+on:
+  push:
+    branches: [ week6 ]
+
+env:
+  # Common environment variables
+  GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GKE_CLUSTER: "kabir-iris-cluster"
+  GKE_LOCATION: "us-central1" # Changed from GKE_ZONE to GKE_LOCATION for regional cluster
+  GAR_LOCATION: "us-central1"
+  GAR_REPOSITORY: "iris-app-repo" # Name of your Artifact Registry repository
+  APP_NAME: "iris-predictor-api"
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 1. Authenticate to Google Cloud
+    - name: Authenticate to Google Cloud
+      id: auth
+      uses: 'google-github-actions/auth@v1'
+      with:
+        credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+    # 2. Configure Docker for Artifact Registry
+    # This step is necessary to push the Docker image to GAR.
+    - name: Configure Docker
+      run: gcloud auth configure-docker ${{ env.GAR_LOCATION }}-docker.pkg.dev
+
+    # 3. Build and Push Docker image
+    - name: Build and Push Docker image
+      run: |
+        # Define the full image tag
+        IMAGE_TAG="${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ env.APP_NAME }}:${{ github.sha }}"
+        
+        # Build the Docker image
+        docker build -t $IMAGE_TAG .
+        
+        # Push the Docker image to Google Artifact Registry
+        docker push $IMAGE_TAG
+        
+        # Make the image tag available to subsequent steps
+        echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
+
+    # 4. Set up GKE credentials
+    # This configures kubectl to connect to your GKE cluster.
+    - name: Set up GKE credentials
+      uses: 'google-github-actions/get-gke-credentials@v1'
+      with:
+        cluster_name: ${{ env.GKE_CLUSTER }}
+        location: ${{ env.GKE_LOCATION }}
+        project_id: ${{ env.GCP_PROJECT_ID }}
+
+    # 5. Deploy to Google Kubernetes Engine
+    - name: Deploy to GKE
+      run: |
+        echo "Deploying image ${{ env.IMAGE_TAG }} to GKE cluster ${{ env.GKE_CLUSTER }}"
+
+        # Use sed to replace the placeholder image with the new image tag in the deployment manifest
+        sed -i "s|image:.*|image: ${{ env.IMAGE_TAG }}|g" k8s/deployment.yaml
+
+        # Apply the updated manifest to the cluster. This handles both creation and updates.
+        kubectl apply -f k8s/deployment.yaml
+
+        # Wait for the deployment rollout to complete
+        kubectl rollout status deployment/${{ env.APP_NAME }}
+        echo "Deployment successful!"

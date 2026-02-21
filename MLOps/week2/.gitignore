@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# DVC/Artifacts (These are large files, tracked by DVC, not Git)
+model.joblib
+metrics.json
+
+# Ignore files inside the data directory, DVC will handle .gitignore inside data/v1 and data/v2
+# NOTE: The DVC add command creates .gitignore inside data/v1/ and data/v2/

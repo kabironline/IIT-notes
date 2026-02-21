@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iris-predictor-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: iris-predictor-api
+  template:
+    metadata:
+      labels:
+        app: iris-predictor-api
+    spec:
+      containers:
+      - name: iris-predictor-api
+        # This is a placeholder that will be replaced by the CI/CD pipeline
+        image: gcr.io/google-samples/hello-app:1.0
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iris-predictor-api-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: iris-predictor-api
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8000
